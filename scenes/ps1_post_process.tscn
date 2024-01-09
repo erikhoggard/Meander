@@ -7,7 +7,7 @@
 shader = ExtResource("1_peqw1")
 shader_parameter/enabled = true
 shader_parameter/dithering = true
-shader_parameter/colors = 12
+shader_parameter/colors = 24
 shader_parameter/dither_size = 4
 
 [node name="Ps1PostProcess" type="Control"]
