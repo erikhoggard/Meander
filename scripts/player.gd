@@ -10,6 +10,7 @@ extends CharacterBody3D
 
 var current_speed = 5.0
 var direction = Vector3.ZERO
+var is_tracking_camera = true
 
 const WALKING_SPEED = 5.0
 const SPRINTING_SPEED = 8.0
@@ -23,14 +24,22 @@ var gravity = ProjectSettings.get_setting("physics/3d/default_gravity")
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	is_tracking_camera = true
 
 func _input(event):
-	if event is InputEventMouseMotion:
+	if event is InputEventMouseMotion and is_tracking_camera:
 		rotate_y(deg_to_rad(-event.relative.x * mouse_sens))
 		head.rotate_x(deg_to_rad(-event.relative.y * mouse_sens))
 		head.rotation.x = clamp(head.rotation.x, deg_to_rad(-89), deg_to_rad(89))
 
 func _physics_process(delta):
+	
+	if Input.is_action_pressed("escape"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		is_tracking_camera = false
+	elif Input.is_action_pressed("lmb"):
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+		is_tracking_camera = true
 
 	# movement state management
 	if Input.is_action_pressed("crouch"):
