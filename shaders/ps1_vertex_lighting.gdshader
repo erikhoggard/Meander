@@ -2,7 +2,7 @@ shader_type spatial;
 render_mode vertex_lighting, skip_vertex_transform, 
             specular_schlick_ggx, diffuse_lambert_wrap, shadows_disabled;
 
-uniform vec4 modulate: hint_color(4, vec4) = vec4(1,1,1,1);
+uniform vec4 modulate: hint_color() = vec4(1,1,1,1);
 uniform sampler2D image_texture: hint_albedo;
 uniform vec2 uv_scrolling_velocity = vec2(0.0);
 

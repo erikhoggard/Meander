@@ -6,7 +6,7 @@ render_mode blend_mix,
 	specular_disabled,
 	vertex_lighting;
 
-uniform bool affine_mapping = false;
+uniform bool affine_mapping = true;
 uniform sampler2D albedo : source_color, filter_nearest;
 uniform float alpha_scissor : hint_range(0, 1) = 0.5;
 uniform float jitter: hint_range(0, 1) = 0.50;
