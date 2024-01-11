@@ -12,8 +12,8 @@ var current_speed = 5.0
 var direction = Vector3.ZERO
 var is_tracking_camera = true
 
-const WALKING_SPEED = 5.0
-const SPRINTING_SPEED = 8.0
+@export var WALKING_SPEED = 5.0
+@export var SPRINTING_SPEED = 8.0
 const CROUCHING_SPEED = 3.0
 const CROUCHING_DEPTH = -0.5
 const JUMP_VELOCITY = 4.5
